@@ -1,0 +1,134 @@
+Time: 0
+Queue:
+EMPTY
+Transaction:
+vehicle: { name: wendy, arrival_time: 0, processing_time: 8, start_time: 0 }
+====================================================
+Time: 1
+Queue:
+EMPTY
+Transaction:
+vehicle: { name: wendy, arrival_time: 0, processing_time: 8, start_time: 0 }
+====================================================
+Time: 2
+Queue:
+EMPTY
+Transaction:
+vehicle: { name: wendy, arrival_time: 0, processing_time: 8, start_time: 0 }
+====================================================
+Time: 3
+Queue:
+vehicle: { name: lucas, arrival_time: 3, processing_time: 5, start_time: 0 }
+Transaction:
+vehicle: { name: wendy, arrival_time: 0, processing_time: 8, start_time: 0 }
+====================================================
+Time: 4
+Queue:
+vehicle: { name: lucas, arrival_time: 3, processing_time: 5, start_time: 0 }
+Transaction:
+vehicle: { name: wendy, arrival_time: 0, processing_time: 8, start_time: 0 }
+====================================================
+Time: 5
+Queue:
+vehicle: { name: lucas, arrival_time: 3, processing_time: 5, start_time: 0 }
+Transaction:
+vehicle: { name: wendy, arrival_time: 0, processing_time: 8, start_time: 0 }
+====================================================
+Time: 6
+Queue:
+vehicle: { name: lucas, arrival_time: 3, processing_time: 5, start_time: 0 }
+vehicle: { name: varik, arrival_time: 6, processing_time: 3, start_time: 0 }
+Transaction:
+vehicle: { name: wendy, arrival_time: 0, processing_time: 8, start_time: 0 }
+====================================================
+Time: 7
+Queue:
+vehicle: { name: lucas, arrival_time: 3, processing_time: 5, start_time: 0 }
+vehicle: { name: varik, arrival_time: 6, processing_time: 3, start_time: 0 }
+Transaction:
+vehicle: { name: wendy, arrival_time: 0, processing_time: 8, start_time: 0 }
+====================================================
+Time: 8
+Queue:
+vehicle: { name: varik, arrival_time: 6, processing_time: 3, start_time: 0 }
+vehicle: { name: veron, arrival_time: 8, processing_time: 1, start_time: 0 }
+Transaction:
+vehicle: { name: lucas, arrival_time: 3, processing_time: 5, start_time: 8 }
+====================================================
+Time: 9
+Queue:
+vehicle: { name: varik, arrival_time: 6, processing_time: 3, start_time: 0 }
+vehicle: { name: veron, arrival_time: 8, processing_time: 1, start_time: 0 }
+vehicle: { name: terry, arrival_time: 9, processing_time: 2, start_time: 0 }
+Transaction:
+vehicle: { name: lucas, arrival_time: 3, processing_time: 5, start_time: 8 }
+====================================================
+Time: 10
+Queue:
+vehicle: { name: varik, arrival_time: 6, processing_time: 3, start_time: 0 }
+vehicle: { name: veron, arrival_time: 8, processing_time: 1, start_time: 0 }
+vehicle: { name: terry, arrival_time: 9, processing_time: 2, start_time: 0 }
+Transaction:
+vehicle: { name: lucas, arrival_time: 3, processing_time: 5, start_time: 8 }
+====================================================
+Time: 11
+Queue:
+vehicle: { name: varik, arrival_time: 6, processing_time: 3, start_time: 0 }
+vehicle: { name: veron, arrival_time: 8, processing_time: 1, start_time: 0 }
+vehicle: { name: terry, arrival_time: 9, processing_time: 2, start_time: 0 }
+Transaction:
+vehicle: { name: lucas, arrival_time: 3, processing_time: 5, start_time: 8 }
+====================================================
+Time: 12
+Queue:
+vehicle: { name: varik, arrival_time: 6, processing_time: 3, start_time: 0 }
+vehicle: { name: veron, arrival_time: 8, processing_time: 1, start_time: 0 }
+vehicle: { name: terry, arrival_time: 9, processing_time: 2, start_time: 0 }
+Transaction:
+vehicle: { name: lucas, arrival_time: 3, processing_time: 5, start_time: 8 }
+====================================================
+Time: 13
+Queue:
+vehicle: { name: veron, arrival_time: 8, processing_time: 1, start_time: 0 }
+vehicle: { name: terry, arrival_time: 9, processing_time: 2, start_time: 0 }
+Transaction:
+vehicle: { name: varik, arrival_time: 6, processing_time: 3, start_time: 13 }
+====================================================
+Time: 14
+Queue:
+vehicle: { name: veron, arrival_time: 8, processing_time: 1, start_time: 0 }
+vehicle: { name: terry, arrival_time: 9, processing_time: 2, start_time: 0 }
+Transaction:
+vehicle: { name: varik, arrival_time: 6, processing_time: 3, start_time: 13 }
+====================================================
+Time: 15
+Queue:
+vehicle: { name: veron, arrival_time: 8, processing_time: 1, start_time: 0 }
+vehicle: { name: terry, arrival_time: 9, processing_time: 2, start_time: 0 }
+Transaction:
+vehicle: { name: varik, arrival_time: 6, processing_time: 3, start_time: 13 }
+====================================================
+Time: 16
+Queue:
+vehicle: { name: terry, arrival_time: 9, processing_time: 2, start_time: 0 }
+Transaction:
+vehicle: { name: veron, arrival_time: 8, processing_time: 1, start_time: 16 }
+====================================================
+Time: 17
+Queue:
+EMPTY
+Transaction:
+vehicle: { name: terry, arrival_time: 9, processing_time: 2, start_time: 17 }
+====================================================
+Time: 18
+Queue:
+EMPTY
+Transaction:
+vehicle: { name: terry, arrival_time: 9, processing_time: 2, start_time: 17 }
+====================================================
+Time: 19
+Queue:
+EMPTY
+Transaction:
+EMPTY
+====================================================
