@@ -17,7 +17,7 @@ ArrayQueue<Type>::ArrayQueue(int capacity)
 	_capacity = capacity;
 	_size = 0;
 	// What do we do with the Type data?
-
+	Type[] 
 	
 }
 
