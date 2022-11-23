@@ -11,28 +11,24 @@
 #include "ArrayList.h"
 
 template<class Type>
-ArrayList<Type>::ArrayList()
-{
+ArrayList<Type>::ArrayList() {
 	// _capacity = 20; // this was initialized in the .h file
 	_size = 0;
 	_data = new Type[_capacity];
 }
 
 template<class Type>
-ArrayList<Type>::~ArrayList()
-{
+ArrayList<Type>::~ArrayList() {
 	delete[] _data;
 }
 
 template<class Type>
-int ArrayList<Type>::size() const
-{
+int ArrayList<Type>::size() const {
 	return _size;
 }
 
 template<class Type>
-void ArrayList<Type>::expand()
-{
+void ArrayList<Type>::expand() {
 	// Once the array is full we need to expand it.
 	// We create an array that is twice as large, and copy all of the items over. 
 	_capacity *= 2;
@@ -45,8 +41,7 @@ void ArrayList<Type>::expand()
 }
 
 template<class Type>
-void ArrayList<Type>::insert(const Type &item)
-{
+void ArrayList<Type>::insert(const Type &item) {
 	// we first need to check if the array is full
 	if (_size >= _capacity) {
 		this.expand();
@@ -59,8 +54,7 @@ void ArrayList<Type>::insert(const Type &item)
 }
 
 template<class Type>
-bool ArrayList<Type>::removeAt(int index)
-{
+bool ArrayList<Type>::removeAt(int index) {
 	// We want the list to be in the same order afterwards, just with one less item.
 	if (index >= _size || index < 0) {
 		return false; // return false if an invalid index is provided
@@ -75,9 +69,7 @@ bool ArrayList<Type>::removeAt(int index)
 }
 
 template<class Type>
-void ArrayList<Type>::sort()
-{
-	// TODO place your code in here
+void ArrayList<Type>::sort() {
 	// If the size is 1 or smaller, then the list is already sorted
 	if (size <= 1) {
 		return;
