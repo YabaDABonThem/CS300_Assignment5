@@ -4,56 +4,50 @@
  *  Created on: Nov 8, 2022
  *      Author: varikmp
  */
+// Edited by ALlen Bao
 
 #ifndef VEHICLE_CPP_
 #define VEHICLE_CPP_
 
 #include "Vehicle.h"
 
-Vehicle::Vehicle(string name, int arrival_time, int processing_time, int start_time)
-{
-	// TODO place your code in here
-
-}
-
-string Vehicle::get_name()
-{
-	// TODO place your code in here
-
-	return _name;
-}
-
-int Vehicle::get_arrival_time()
-{
-	// TODO place your code in here
-
-	return _arrival_time;
-}
-
-int Vehicle::get_processing_time()
-{
-	// TODO place your code in here
-
-	return _processing_time;
-}
-
-int Vehicle::get_start_time()
-{
-	// TODO place your code in here
-
-	return _start_time;
-}
-void Vehicle::set_start_time(int start_time)
-{
-	// TODO place your code in here
-
+Vehicle::Vehicle(string name, int arrival_time, int processing_time, int start_time) {
+	// Assign field values
+	// We need to throw invalid argument exception when we input a negative number 
+	// We have three different error mesaages for debugging purposes. 
+	if (_arrival_time < 0) {
+		throw std::invalid_argument("Arrival time cannot be negative");
+	} else if (processing_time < 0) {
+		throw std::invalid_argument("Processing time cannot be negative");
+	} else if (start_time < 0) {
+		throw std::invalid_argument("Start time cannot be negative");
+	}
+	_name = name;
+	_arrival_time = arrival_time;
+	_processing_time = processing_time;
 	_start_time = start_time;
 }
 
-bool Vehicle::operator< (const Vehicle& rhs)
-{
-	// TODO place your code in here
+string Vehicle::get_name() {
+	return _name;
+}
 
+int Vehicle::get_arrival_time() {
+	return _arrival_time;
+}
+
+int Vehicle::get_processing_time() {
+	return _processing_time;
+}
+
+int Vehicle::get_start_time() {
+	return _start_time;
+}
+void Vehicle::set_start_time(int start_time) {
+	_start_time = start_time;
+}
+
+bool Vehicle::operator< (const Vehicle& rhs) {
 	return this->_arrival_time < rhs._arrival_time;
 }
 

@@ -13,8 +13,9 @@
 template<class Type>
 ArrayList<Type>::ArrayList()
 {
-	// TODO place your code in here
-
+	// _capacity = 20; // this was initialized in the .h file
+	_size = 0;
+	_data = new Type[20];
 }
 
 template<class Type>
@@ -29,14 +30,15 @@ int ArrayList<Type>::size() const
 {
 	// TODO place your code in here
 
-	return 0;
+	return _size;
 }
 
 template<class Type>
 void ArrayList<Type>::expand()
 {
 	// TODO place your code in here
-
+	// Once the array is full we need to expand it.
+	// We create an array that is twice as large, and copy all of the items over. 
 }
 
 template<class Type>

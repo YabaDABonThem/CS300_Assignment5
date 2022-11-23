@@ -13,8 +13,12 @@
 template<class Type>
 ArrayQueue<Type>::ArrayQueue(int capacity)
 {
-	// TODO place your code in here
+	// we need to create en empty ArrayQueue with the specified capacity
+	_capacity = capacity;
+	_size = 0;
+	// What do we do with the Type data?
 
+	
 }
 
 template<class Type>
@@ -28,16 +32,16 @@ template<class Type>
 bool ArrayQueue<Type>::is_full() const
 {
 	// TODO place your code in here
-
-	return false;
+	return _size >= _capacity;
+	// return false;
 }
 
 template<class Type>
 bool ArrayQueue<Type>::is_empty() const
 {
 	// TODO place your code in here
-
-	return false;
+	return _size <= 0;
+	//return false;
 }
 
 template<class Type>
