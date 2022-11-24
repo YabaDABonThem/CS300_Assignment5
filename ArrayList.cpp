@@ -75,6 +75,18 @@ void ArrayList<Type>::sort() {
 		return;
 	}
 	// There are at least 2 items in the array
+	// NOTE: we are required to use bubble sort
+	for (int i = 0; i < _size; ++i) {
+		for (int j = 0; j < _size - 1; ++j) {
+			if (_data[j+1] < _data[j]) {
+				// swap the two items
+				Type temp = data[j];
+				data[j+1] = data[j];
+				data[j] = temp;	
+			}
+		}
+	}
+	/*
 	for (int i = 0; i < _size - 1; ++i) {
 		// find the smallest number in the remaining numbers
 		int smallest = i;
@@ -88,6 +100,7 @@ void ArrayList<Type>::sort() {
 		data[i] = data[smallest];
 		data[smallest] = temp;		
 	}
+	*/
 	
 }
 
