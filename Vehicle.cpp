@@ -15,12 +15,12 @@ Vehicle::Vehicle(string name, int arrival_time, int processing_time, int start_t
 	// Assign field values
 	// We need to throw invalid argument exception when we input a negative number 
 	// We have three different error mesaages for debugging purposes. 
-	if (_arrival_time < 0) {
-		throw std::invalid_argument("Arrival time cannot be negative");
+	if (arrival_time < 0) {
+		throw std::invalid_argument("the arrival time must be non-negative");
 	} else if (processing_time < 0) {
-		throw std::invalid_argument("Processing time cannot be negative");
+		throw std::invalid_argument("the processing time must be non-negative");
 	} else if (start_time < 0) {
-		throw std::invalid_argument("Start time cannot be negative");
+		throw std::invalid_argument("the start time must be non-negative");
 	}
 	_name = name;
 	_arrival_time = arrival_time;
@@ -48,6 +48,10 @@ void Vehicle::set_start_time(int start_time) {
 }
 
 bool Vehicle::operator< (const Vehicle& rhs) {
+	// compare their processing times when their arrival times are the same
+	if (this->_arrival_time == rhs._arrival_time) {
+		return this->_processing_time < rhs._processing_time;
+	}
 	return this->_arrival_time < rhs._arrival_time;
 }
 

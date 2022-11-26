@@ -40,7 +40,8 @@ bool ArrayQueue<Type>::is_empty() const {
 template<class Type>
 Type &ArrayQueue<Type>::peek() const {
 	if (is_empty()) {
-		return 0; // What should we return here?
+		// return 0; // What should we return here?
+		throw std::logic_error("the queue is empty");
 	}
 	return _data[0];
 }
@@ -64,7 +65,7 @@ bool ArrayQueue<Type>::dequeue() {
 		return false; // return false if it's empty
 	}
 	// this loop should cover the edge case of size = 1
-	for (int i = 1; i < _size - 1; ++i) {
+	for (int i = 0; i < _size - 1; ++i) {
 		_data[i] = _data[i+1];
 	}
 	--_size;

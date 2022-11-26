@@ -24,13 +24,13 @@ Simulation::Simulation(string file_name)
 	// read data from the file provided
 	// each line of the file has a customer's info in this format:
 	// <name> <arrival time> <processing time>
-	constexpr char path[] = "C:\\Users\\allen\\Documents\\cs300\\HW5\\data.txt";
+	// constexpr char path[] = "C:\\Users\\allen\\Documents\\cs300\\HW5\\data.txt";
+	constexpr char path[] = "data.txt";
 	ifstream file;
 	file.open(path, ios::in);
 
 	std::string vehicleInfo;
-	// does start time start from zero?
-	// arrival time supports zero so I assume it does
+	// start time starts from zero
 	int startTime = 0;
 	while (std::getline(file, vehicleInfo))
 	{

@@ -33,7 +33,7 @@ void ArrayList<Type>::expand() {
 	// We create an array that is twice as large, and copy all of the items over. 
 	_capacity *= 2;
 	Type *newData = new Type[_capacity];
-	for (int i = 0; i < _data.length; ++i) {
+	for (int i = 0; i < _size; ++i) {
 		newData[i] = _data[i];
 	}
 	delete[] _data;
@@ -44,7 +44,7 @@ template<class Type>
 void ArrayList<Type>::insert(const Type &item) {
 	// we first need to check if the array is full
 	if (_size >= _capacity) {
-		this.expand();
+		this->expand();
 	}
 	// we add an item to the first avilable spot
 	_data[_size] = item;
@@ -71,7 +71,8 @@ bool ArrayList<Type>::removeAt(int index) {
 template<class Type>
 void ArrayList<Type>::sort() {
 	// If the size is 1 or smaller, then the list is already sorted
-	if (size <= 1) {
+	
+	if (_size <= 1) {
 		return;
 	}
 	// There are at least 2 items in the array
@@ -80,9 +81,9 @@ void ArrayList<Type>::sort() {
 		for (int j = 0; j < _size - 1; ++j) {
 			if (_data[j+1] < _data[j]) {
 				// swap the two items
-				Type temp = data[j];
-				data[j+1] = data[j];
-				data[j] = temp;	
+				Type temp = _data[j];
+				_data[j] = _data[j+1];
+				_data[j+1] = temp;	
 			}
 		}
 	}
@@ -106,6 +107,10 @@ void ArrayList<Type>::sort() {
 
 template<class Type>
 Type& ArrayList<Type>::get(int index) {
+	// gotta check if the index is valid or not
+	if (index < 0 || index >= _size) {
+		throw std::logic_error("the index is out of bound");
+	}
 	return _data[index];
 }
 

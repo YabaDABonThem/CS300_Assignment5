@@ -14,7 +14,8 @@ using namespace std;
 template<class Type>
 class ArrayList
 {
-	private:
+	// change this to public when testing
+	public:
 		int _capacity = 20;
 		int _size;
 		Type *_data;
