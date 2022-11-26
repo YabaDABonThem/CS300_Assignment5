@@ -1,8 +1,8 @@
 /*
  * ArrayList.cpp
  *
- *  Created on: Nov 8, 2022
- *      Author: varikmp
+ *  Created on: Nov 18, 2022
+ *      Author: Allen Bao
  */
 
 #ifndef ARRAY_LIST_CPP_
@@ -12,7 +12,6 @@
 
 template<class Type>
 ArrayList<Type>::ArrayList() {
-	// _capacity = 20; // this was initialized in the .h file
 	_size = 0;
 	_data = new Type[_capacity];
 }

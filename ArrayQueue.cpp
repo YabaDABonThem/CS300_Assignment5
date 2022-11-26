@@ -1,8 +1,8 @@
 /*
  * ArrayList.cpp
  *
- *  Created on: Oct 30, 2022
- *      Author: varikmp
+ *  Created on: Nov 18, 2022
+ *      Author: Allen Bao
  */
 
 #ifndef ARRAY_QUEUE_CPP_
@@ -15,7 +15,6 @@ ArrayQueue<Type>::ArrayQueue(int capacity) {
 	// we need to create en empty ArrayQueue with the specified capacity
 	_capacity = capacity;
 	_size = 0;
-	// What do we do with the Type data?
 	_data = new Type[_capacity];
 	
 }
@@ -27,9 +26,7 @@ ArrayQueue<Type>::~ArrayQueue() {
 
 template<class Type>
 bool ArrayQueue<Type>::is_full() const {
-	// TODO place your code in here
 	return _size >= _capacity;
-	// return false;
 }
 
 template<class Type>
@@ -40,7 +37,6 @@ bool ArrayQueue<Type>::is_empty() const {
 template<class Type>
 Type &ArrayQueue<Type>::peek() const {
 	if (is_empty()) {
-		// return 0; // What should we return here?
 		throw std::logic_error("the queue is empty");
 	}
 	return _data[0];
