@@ -11,7 +11,7 @@ using namespace std;
 
 int main()
 {
-	Simulation *simulation = new Simulation("data.txt");
+	Simulation *simulation = new Simulation("C:\\Users\\allen\\Documents\\cs300\\HW5\\data.txt");
 	while (!simulation->done())
 	{
 		simulation->step();

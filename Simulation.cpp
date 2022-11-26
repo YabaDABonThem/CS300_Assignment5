@@ -20,9 +20,10 @@ using namespace std;
 
 Simulation::Simulation(string file_name) {
 	// TODO place your code in here
-	current_time = 0;
+	current_time = -1;
 	vehicles_list = new ArrayList<Vehicle>();
 	vehicles_queue = new ArrayQueue<Vehicle>();
+	
 
 	// read data from the file provided
 	// each line of the file has a customer's info in this format:
@@ -38,8 +39,8 @@ Simulation::Simulation(string file_name) {
 		int arrivalTime, processingTime;
 		if (!(iss >> name >> arrivalTime >> processingTime)) { break; } // error
 
-
-		vehicles_list->insert(Vehicle(name, arrivalTime, processingTime, current_time));
+		// we are using 0 as a placeholder for the start time
+		vehicles_list->insert(Vehicle(name, arrivalTime, processingTime, 0));
 
 	}
 
@@ -57,11 +58,13 @@ Simulation::~Simulation() {
 bool Simulation::done() {
 	// The method returns true if there is no customer arriving or in queue
 	// or at the drive-thru window, otherwise false
-	return vehicles_list->size() == 0 && vehicles_queue->is_empty();
+	return vehicles_list->size() == 0 && vehicles_queue->is_empty() && 
+	(current_time >= current_transaction.get_start_time() + current_transaction.get_processing_time());
 }
 
 void Simulation::step() {
 	// The method increases the current time by one time unit
+	++current_time;
 	// put the customer(s) from the list into the queue at the right time (arrival time)
 	// check the current time to see if it matches up with the customer's arrival time. 
 	
@@ -75,15 +78,24 @@ void Simulation::step() {
 			break;
 		}
 	}
+
 	// removes the customer in the front of the queue
 	// place the customer into the current transaction if no customer at the drive-thru window.
-	
-	if (!vehicles_queue->is_empty()) {
-		vehicles_queue->peek().set_start_time(current_time);
-		current_transaction = vehicles_queue->peek();
-		vehicles_queue->dequeue();
+	// if the current time >= start time + processing time, then you can move onto the next item.  
+	if (current_time >= current_transaction.get_start_time() + current_transaction.get_processing_time()) {
+		
+		if (vehicles_queue->is_empty()) {
+			// clear the current transaction if no more items are being processed
+			current_transaction = Vehicle();
+		} else {
+			// pop one from the queue if there are items remaining
+			vehicles_queue->peek().set_start_time(current_time);
+			current_transaction = vehicles_queue->peek();
+			vehicles_queue->dequeue();
+		} 
 	}
-	++current_time;
+
+
 }
 
 void Simulation::print() {
