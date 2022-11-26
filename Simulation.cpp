@@ -18,56 +18,75 @@
 #include "Simulation.h"
 using namespace std;
 
-Simulation::Simulation(string file_name)
-{
+Simulation::Simulation(string file_name) {
 	// TODO place your code in here
+	current_time = 0;
+	vehicles_list = new ArrayList<Vehicle>();
+	vehicles_queue = new ArrayQueue<Vehicle>();
+
 	// read data from the file provided
 	// each line of the file has a customer's info in this format:
 	// <name> <arrival time> <processing time>
-	// constexpr char path[] = "C:\\Users\\allen\\Documents\\cs300\\HW5\\data.txt";
-	constexpr char path[] = "data.txt";
 	ifstream file;
-	file.open(path, ios::in);
+	file.open(file_name, ios::in);
 
 	std::string vehicleInfo;
-	// start time starts from zero
-	int startTime = 0;
-	while (std::getline(file, vehicleInfo))
-	{
+
+	while (std::getline(file, vehicleInfo)) {
 		std::istringstream iss(vehicleInfo);
 		string name;
 		int arrivalTime, processingTime;
 		if (!(iss >> name >> arrivalTime >> processingTime)) { break; } // error
 
-		vehicles_list->insert(*(new Vehicle(name, arrivalTime, processingTime, startTime)));
 
-		++startTime;
+		vehicles_list->insert(Vehicle(name, arrivalTime, processingTime, current_time));
+
 	}
+
+	// Sort the list to prioritize the criteria of arrival time and processing time.
+	vehicles_list->sort();
 }
 
-Simulation::~Simulation()
-{
+Simulation::~Simulation() {
 	// TODO place your code in here
 	// we need to clear out the ArrayList and ArrayQueue
-	vehicles_list->~ArrayList();
-	vehicles_queue->~ArrayQueue();
+	delete vehicles_list;
+	delete vehicles_queue;
 }
 
-bool Simulation::done()
-{
+bool Simulation::done() {
 	// The method returns true if there is no customer arriving or in queue
 	// or at the drive-thru window, otherwise false
 	return vehicles_list->size() == 0 && vehicles_queue->is_empty();
 }
 
-void Simulation::step()
-{
-	// 	The method increases the current time by one time unit
+void Simulation::step() {
+	// The method increases the current time by one time unit
+	// put the customer(s) from the list into the queue at the right time (arrival time)
+	// check the current time to see if it matches up with the customer's arrival time. 
+	
+	// this is to avoid wrong calculations with the temp size changing 
+	int tempSize = vehicles_list->size();
+	for (int i = 0; i < tempSize; ++i) {
+		if (vehicles_list->get(0).get_arrival_time() == current_time) {
+			vehicles_queue->enqueue(vehicles_list->get(0));
+			vehicles_list->removeAt(0);
+		} else {
+			break;
+		}
+	}
+	// removes the customer in the front of the queue
+	// place the customer into the current transaction if no customer at the drive-thru window.
+	
+	if (!vehicles_queue->is_empty()) {
+		vehicles_queue->peek().set_start_time(current_time);
+		current_transaction = vehicles_queue->peek();
+		vehicles_queue->dequeue();
+	}
 	++current_time;
 }
 
-void Simulation::print()
-{
+void Simulation::print() {
 	cout << "Time: " << current_time << endl;
 
 	cout << "Queue:" << endl;

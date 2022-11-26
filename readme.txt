@@ -1,8 +1,8 @@
-Name: Varik Hoang
+Name: Allen Bao
 Time Estimate: 6-7 hours
 Extra Credit: No
 Problems:
-  1. I don't know where to get the duck ASCII, so I just come up with my own design.
-  2. The book reader has a little problem reading the new line character on Windows.
+  1. I'm confused on the file reading syntax, so it took me a long time to figure it out
+  2. 
 Questions:
   None.

@@ -87,21 +87,6 @@ void ArrayList<Type>::sort() {
 			}
 		}
 	}
-	/*
-	for (int i = 0; i < _size - 1; ++i) {
-		// find the smallest number in the remaining numbers
-		int smallest = i;
-		for (int j = i + 1; j > _size; ++j) {
-			if (_data[j] < _data[smallest]) {
-				smallest = j;
-			}
-		}
-		// swap the smallest you found wiht 
-		Type temp = data[smallest];
-		data[i] = data[smallest];
-		data[smallest] = temp;		
-	}
-	*/
 	
 }
 
